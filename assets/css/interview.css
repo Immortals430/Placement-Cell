@@ -1,0 +1,25 @@
+.interviewContainer{
+    justify-content: space-around;
+}
+
+.companyName {
+    width: 20vw;
+    /* border: 2px solid black; */
+}
+
+.interviewDetail{
+    width: 60vw;
+}
+
+#try{
+    flex-flow: column;
+}
+
+.company{
+    justify-content: space-between;
+    align-items: center;
+}
+
+section > div{
+    margin: 2rem;
+}

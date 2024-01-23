@@ -1,0 +1,17 @@
+form{
+    position: fixed;
+    width: 50vw;
+    left: 25%;
+    margin: auto;
+    padding: 3rem;
+    background-color: aliceblue;
+
+}
+
+form > input{
+    width: 100%;
+}
+
+table *{
+    text-align: center;
+}

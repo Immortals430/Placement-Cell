@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/navbar.css">
+
+<!-- navbar -->
+<nav class="flex bg-info-subtle ">
+    <a href="/"><h2 >Placement Cell</h2></a>
+    <div class="flex navRightContainer fw-semibold">
+
+        <!-- conditional rendering -->
+        <a href="/api/v1/download">Download data</a>
+        
+        <% if(url === '/api/v1/dashboard'){ %>
+            <a onclick="displayaddStudentForm()">Add Student</a>
+        <% } %>
+        <% if(url === '/api/v1/interview'){ %>
+            <a href="/api/v1/dashboard">Students</a>
+        <% } %>
+        <% if(url === '/api/v1/dashboard'){ %>
+            <a href="/api/v1/interview">Interviews</a>
+        <% } %>
+  
+        <a href="/api/v1/externalJobs" >External Jobs</a>
+
+        <% if(locals.user){ %>
+            <a href="/api/v1/user/logout">Logout</a>
+        <% } %>
+        <% if(!locals.user){ %>
+            <a href="/api/v1/user/signin">Sign In</a>
+        <% } %>
+    </div>
+</nav>

@@ -1,0 +1,15 @@
+nav{
+    justify-content: space-between;
+    padding: 0.8rem 3rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.navRightContainer *{
+    padding-left: 2rem;
+    cursor: pointer;
+}
+
+h2{
+    margin: 0;
+}
