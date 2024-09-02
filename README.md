@@ -12,6 +12,40 @@ Link to production site: [Placement Cell](https://placement-cell.vercel.app/)
 - Download data in csv format
 - Search for external jobs
 
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Immortals430/Placement-Cell.git
+```
+
+Go to the project directory
+
+```bash
+  cd Placement-Cell
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  node index
+```
+
+
+
+
+Environment variables
+
+`DB`
+
+
 
 ## Screenshots
 
