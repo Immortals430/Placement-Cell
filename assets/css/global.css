@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex{
+    display: flex;
+}
+
+.vcenter{
+    align-items: center;
+}
+
+.hcenter{
+    justify-content: center;
+}
+
+a{  
+    color: black;
+    text-decoration: none;
+}
+
+.authSec{
+    margin: auto;
+    width: 30vw;
+    padding: 2rem 3rem;
+    /* background-color: rgb(212, 212, 212); */
+    box-shadow: 2px 2px 10px 10px rgb(227, 227, 227);
+}
+

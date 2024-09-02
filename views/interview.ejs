@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="/css/interview.css">
+<section>
+  
+  <div class="d-flex justify-content-around">
+    <!-- add company form -->
+    <form action="/api/v1/interview/addInterview" method="post" id="addInterview">
+      <h4>Add Company</h4>
+      <input required type="text" name="companyName" id="companyName" placeholder="Company Name">    
+      <input type="submit" class="btn btn-primary" name="" id="">
+    </form>
+    <!-- if company is selected this form will appear -->
+    <% if(url.length >= 26){ %>
+      <form action="/api/v1/interview/addStudent" method="post">
+        <h4>Add Student</h4>
+        <label for="email">Student Email</label>
+        <input required type="text" name="email" id="email" list="emails">
+        <datalist required id="emails">
+          <% for(value of students){ %>
+            <option value="<%= value.email %>">
+          <% } %>       
+        </datalist>
+        <label for="interviewDate">Interview Date</label>
+        <input required type="date" name="interviewDate" id="interviewDate">
+        <input type="hidden" name="companyID" value="<%= companyID ? companyID : 'null' %>">
+        <label  for="status">Status</label>
+        <select required name="status" id="status">
+          <option value="PASS">PASS</option>
+          <option value="FAIL">FAIL</option>
+          <option value="On Hold" >On Hold</option>
+          <option value="Didn’t Attempt">Didn’t Attempt</option> 
+        </select>
+        <input type="submit" class="btn btn-primary" value="Add Student">
+      </form>
+    <% } else { %>
+
+      <!-- else this text will appear -->
+      <h4>Select Company to add Student for placement</h4>
+    <% } %>    
+  </div>
+
+
+  <div class="d-flex justify-content-around">
+    <!-- company list -->
+    <table class="table companyName">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company Name</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% interviewList.forEach((data, i) => { %>
+              <tr>
+                  <td><%= i + 1 %></td>
+                  <td class="flex company ">
+                    <a href="/api/v1/interview/?companyID=<%= data._id %>" class="fw-semibold"><%= data.companyName %></a>
+                    <a href="/api/v1/interview/deleteCompany/?companyID=<%= data._id %>"><i class="fa-solid fa-trash text-danger"></i></a>
+                  </td>
+              </tr>
+          <% }) %>
+
+      </tbody>
+    </table>
+
+    <!-- student data alloted to company -->
+    <table class="table interviewDetail">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Student</th>
+          <th scope="col">Email</th>
+          <th scope="col">Batch</th>
+          <th scope="col">Interview Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(interviewDetail){ 
+           interviewDetail.students.forEach((data) => { %>
+            <tr>
+              <td><%= data.studentName.studentName %></td>
+              <td><%= data.studentName.email %></td>
+              <td><%= data.studentName.batch %></td>
+              <td><%= data.interviewDate %></td>
+              <td><%= data.status %></td>
+            </tr>
+          <% })
+          } %>
+
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+
+
+
+
+
+

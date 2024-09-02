@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/externalJobs.css">
+<h3>
+  Welcome to External Jobs Portal
+</h3>
+
+<!-- external jobs lists -->
+<section class="flex jobContainer">
+  <% jobs.forEach((data, i) => { %>
+    <div  class="card mb-3" style="max-width: 540px;">
+      <a href="<%= data.url %>" class="row g-0">
+  
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= data.company_name %></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text fw-semibold">Location: <span class="fw-normal"><%= data.location %></span></p>
+            <p class="card-text">
+              <% data.tags.forEach((value) => { %>
+                <small class="text-body-secondary"><%= value %></small>
+              <% }) %>
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>  
+  <% }) %>
+</section>
+
+
+

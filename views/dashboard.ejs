@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/css/dashboard.css">
+
+<br>
+
+<!-- add student form -->
+<form action="/api/v1/dashboard/addStudent" method="post" id="addStudent" style="display: none;;">
+    <h2>Add Student</h2>
+    <label for="studentName">Student Name</label>
+    <input type="text" name="studentName" id="studentName" required>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <label for="batch">Batch</label>
+    <input type="number" name="batch" id="batch" min="2000" max="2024" required>
+    <label for="collegeName">College Name</label>
+    <input type="text" name="collegeName" id="collegeName" required>
+    <div class="row">
+      <div class="col">
+        <label for="dsaScore" class="">DSA Score</label>
+        <input type="number" name="dsaScore" id="dsaScore" max="2000" required>
+      </div>
+      <div class="col">
+        <label for="webDScore">WebD Score</label>
+        <input type="number" name="webDScore" id="webDScore" max="2000" required>
+      </div>
+      <div class="col">
+        <label for="reactScore">React Score</label>
+        <input type="number" name="reactScore" id="reactScore" max="2000" required>
+      </div>
+      <div class="col">
+        <label for="result">Result</label>
+        <select  name="result" id="result" max="2000" required>
+          <option value="PASS">PASS</option>
+          <option value="FAIL">FAIL</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-primary" name="" id="">
+</form>
+
+
+<!-- student data table -->
+<table class="table">
+    <thead class="table-secondary ">
+      <tr class="">
+        <th scope="col">#</th>
+        <th scope="col">Student Name</th>
+        <th scope="col">Batch</th>
+        <th scope="col">College Name</th>
+        <th scope="col">DSA Score</th>
+        <th scope="col">WebD Score</th>
+        <th scope="col">React Score</th>
+        <th scope="col">Result</th>
+        <th scope="col">Placement Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% studentData.forEach((student, i) => { %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td class="fw-medium"><%= student.studentName %></td>
+          <td><%= student.batch %></td>
+          <td><%= student.collegeName %></td>
+          <td><%= student.score.dsaScore %></td>
+          <td><%= student.score.webDScore %></td>
+          <td><%= student.score.reactScore %></td>
+          <td><%= student.result %></td>
+          <td class="text-success fw-medium">
+            <% student.interviews.forEach((value, i, arr) => { %>
+              <%= value.companyName %>
+              <% if (i < arr.length - 1) { %>
+                <%= ',' %>
+              <% } %>
+            <% }) %>
+          </td>
+        </tr>
+      <% }) %>       
+    </tbody>
+  </table>
+
+
+  <script src="/js/dashboard.js"></script>
+  
