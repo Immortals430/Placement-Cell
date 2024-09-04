@@ -41,7 +41,7 @@ Start the server
 
 
 
-Environment variables
+## Environment variables
 
 `DB`
 
